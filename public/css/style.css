@@ -1,0 +1,29 @@
+body{
+    background-color: rgb(253, 234, 237);
+}
+
+.navbar {
+  height: 5rem;
+  display: flex !important;
+  align-items: center !important ;/* vertical centering */
+}
+
+.navbar-nav {
+  align-items: center;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand .fa-tent {
+  color: #5d2a1a !important;
+  font-size: 2rem;
+}
+.nav-link{
+    color: #222222 !important;
+    padding: 0.5rem 1rem;
+
+}
+

@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(253, 234, 237);
+    background-color: rgba(250, 241, 243, 0.781);
 }
 
 .navbar {
@@ -26,4 +26,34 @@ body{
     padding: 0.5rem 1rem;
 
 }
+.f-info-links{
+  width: 100%;
+}
+.f-info-links a{
+  text-decoration: none;
+  color: #222222;
+}
 
+.f-info-links a:hover{
+  text-decoration: underline;
+  color: #222222;
+}
+.f-info-links,.f-info-socials,.f-info-brands{
+  width: 100%;
+  align-items: center !important;
+ vertical-align: middle;
+ 
+}
+.f-info-socials i{
+   margin-right: 1rem;
+    font-size: 1.2rem;
+}
+.f-info{
+  text-align: center;
+  display: flex;
+  height: 8rem;
+  background-color: #ebebeb;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-evenly;
+}

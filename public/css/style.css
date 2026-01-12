@@ -1,5 +1,6 @@
 body{
-    background-color: rgba(250, 241, 243, 0.781);
+  font-family: 'Plus Jakarta Sans' ,sans-serif !important;
+    /* background-color: rgba(250, 241, 243, 0.781); */
 }
 
 .navbar {
@@ -26,6 +27,11 @@ body{
     padding: 0.5rem 1rem;
 
 }
+.card-img-top {
+  height: 16rem;
+  object-fit: cover;
+}
+
 .f-info-links{
   width: 100%;
 }
@@ -57,3 +63,29 @@ body{
   justify-content: center;
   align-items: space-evenly;
 }
+.card{
+  border: none;
+  margin-bottom: 2rem;
+}
+
+.card-img-top{
+  border-radius: 1rem !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+.card-body{
+  padding: 0;
+}
+.card-text p{
+  font-weight:400 ;
+}
+.card-img-overlay {
+  opacity: 0 !important;
+  background-color: #dbe6f1e3 !important;
+  transition: opacity 0.2s ease !important;
+}
+
+.card:hover .card-img-overlay {
+  opacity: 0.2 !important;
+}
+

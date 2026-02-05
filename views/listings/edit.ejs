@@ -4,75 +4,109 @@
     <br>
     <br>
     <div class="col-8 offset-2">
-        <h3>Edit your Listing :</h3>
+        <h3>Edit Listing :</h3>
 
-        <form method="POST" action="/listings/<%= listing._id %>?_method=PUT">
+        <form 
+            method="POST" 
+            action="/listings/<%= listing._id %>?_method=PUT" 
+            novalidate 
+            class="needs-validation"
+        >
 
+            <!-- Title -->
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
                 <input 
                     name="listing[title]" 
-                    value="<%= listing.title %>" 
+                    value="<%= listing.title %>"
                     type="text" 
-                    class="form-control"
+                    class="form-control" 
                     required
                 >
+                <div class="valid-feedback">LOOKS GOOD !!</div>
             </div>
 
+            <!-- Description -->
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
                 <textarea 
                     name="listing[description]" 
-                    class="form-control"
+                    class="form-control" 
+                    required
                 ><%= listing.description %></textarea>
+                <div class="valid-feedback">WELL !!</div>
+                <div class="invalid-feedback">
+                    Please enter short description !!
+                </div>
             </div>
 
+            <!-- Image -->
             <div class="mb-3">
                 <label for="image" class="form-label">Image Link</label>
                 <input 
-                    name="listing[image]" 
-                    value="<%= listing.image %>" 
-                    type="text" 
-                    class="form-control"
+                    name="listing[image][url]" 
+                    value="<%= listing.image?.url || listing.image %>"
+                    placeholder="Enter image link (must be working)" 
+                    class="form-control" 
+                    type="text"
                 >
             </div>
 
+            <!-- Price -->
             <div class="mb-3">
                 <label for="price" class="form-label">Price</label>
                 <input 
                     name="listing[price]" 
-                    value="<%= listing.price %>" 
+                    value="<%= listing.price %>"
+                    class="form-control"  
+                    placeholder="Enter price" 
                     type="number" 
-                    class="form-control"
+                    required
                 >
+                <div class="invalid-feedback">
+                    Price should be valid !!
+                </div>
             </div>
 
+            <!-- Location & Country -->
             <div class="row">
                 <div class="mb-md-3 col-6">
                     <label for="location" class="form-label">Location</label>
                     <input 
                         name="listing[location]" 
-                        value="<%= listing.location %>" 
+                        value="<%= listing.location %>"
+                        class="form-control"   
+                        placeholder="Enter Location" 
                         type="text" 
-                        class="form-control"
+                        required
                     >
+                    <div class="invalid-feedback">
+                        Location should be valid !!
+                    </div>
                 </div>
 
                 <div class="mb-md-3 col-4">
                     <label for="country" class="form-label">Country</label>
                     <input 
                         name="listing[country]" 
-                        value="<%= listing.country %>" 
+                        value="<%= listing.country %>"
+                        class="form-control"  
+                        placeholder="Enter country" 
                         type="text" 
-                        class="form-control"
+                        required
                     >
+                    <div class="invalid-feedback">
+                        Country should be valid !!
+                    </div>
                 </div>
             </div>
 
-            <button class="btn-btn-dark btnclr" type="submit">Edit</button>
-            <br>
-            <br>
+            <!-- Button -->
+            <button class="btn-btn-dark btnclr" type="submit">
+                Edit
+            </button>
 
+            <br><br>
         </form>
     </div>
 </div>

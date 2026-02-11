@@ -54,7 +54,7 @@ app.use(express.static(path.join(__dirname, "/public")));
 // Root
 // 
 app.get("/", (req, res) => {
-    res.render("listings/home"); // Express automatically adds .ejs
+    res.redirect("/listings"); 
 });
 
 

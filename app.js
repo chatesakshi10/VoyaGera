@@ -115,10 +115,12 @@ app.put(
 //   })
 // );
 // Middleware to check admin access
+// Middleware to check admin access
 const requireAdmin = (req, res, next) => {
-  const secret = req.query.secret; // we will pass ?secret=YOUR_SECRET in URL or request
+  const secret = req.query.secret; // pass ?secret=YOUR_SECRET in URL
   if (!secret || secret !== process.env.ADMIN_PASSWORD) {
-    return res.status(401).send("Unauthorized! Only admin can delete listings.");
+    // Throw error to render error page
+    return next(new ExpressError(401, "Unauthorized! Only admin can delete listings."));
   }
   next();
 };
@@ -126,13 +128,20 @@ const requireAdmin = (req, res, next) => {
 // DELETE route (protected)
 app.delete(
   "/listings/:id",
-  requireAdmin, // ✅ add this middleware
+  requireAdmin, // ✅ only admin can delete
   wrapAsync(async (req, res) => {
     const { id } = req.params;
-    await Listing.findByIdAndDelete(id);
+    const listing = await Listing.findByIdAndDelete(id);
+
+    if (!listing) {
+      // Listing not found
+      throw new ExpressError(404, "Listing not found");
+    }
+
     res.redirect("/listings");
   })
 );
+
 
 
 // SHOW

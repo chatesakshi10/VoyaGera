@@ -54,7 +54,7 @@ app.use(express.static(path.join(__dirname, "/public")));
 // Root
 // 
 app.get("/", (req, res) => {
-    res.redirect("/listings");
+    res.redirect("/views/listings/home.ejs");
 });
 
 

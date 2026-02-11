@@ -52,9 +52,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "/public")));
 
 // Root
+// 
 app.get("/", (req, res) => {
-  res.send("Hii , I am a root");
+    res.redirect("/listings");
 });
+
 
 // INDEX
 app.get(

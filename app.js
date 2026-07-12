@@ -1,161 +1,76 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const Listing = require("./models/listing.js");
 const path = require("path");
 const ejsMate = require("ejs-mate");
 const methodOverride = require("method-override");
-const wrapAsync = require("./utils/wrapAsync.js");
-const ExpressError = require("./utils/ExpressError.js");
-const { listingSchema } = require("./schema.js");
+
+const listings = require("./routes/listings");
+const Review = require("./models/review");
+const ExpressError = require("./utils/ExpressError");
+
 if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
+    require("dotenv").config();
 }
 
-//const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 const MONGO_URL = process.env.MONGO_URL;
 const port = process.env.PORT || 3000;
 
-
-
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
-
-// DB connection
+// Database
 async function main() {
-  await mongoose.connect(MONGO_URL);
+    await mongoose.connect(MONGO_URL);
 }
-main()
-  .then(() => {
-    console.log("Connected to DB");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
 
-// ✅ VALIDATION FIX
-const validatelisting = (req, res, next) => {
-  let { error } = listingSchema.validate(req.body);
-  if (error) {
-    throw new ExpressError(400, error.message); // FIXED
-  }
-  next();
-};
+main()
+    .then(() => console.log("Connected to DB"))
+    .catch(console.log);
 
 // Middleware
-app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
+
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "/public")));
+app.use(methodOverride("_method"));
+app.use(express.static(path.join(__dirname, "public")));
 
-// Root
-// 
+// Routes
+app.use("/listings", listings);
+
 app.get("/", (req, res) => {
-    res.redirect("/listings"); 
-});
-
-
-
-// INDEX
-app.get(
-  "/listings",
-  wrapAsync(async (req, res) => {
-    const allListings = await Listing.find({});
-    res.render("listings/index.ejs", { allListings });
-  })
-);
-
-// NEW
-app.get("/listings/new", (req, res) => {
-  res.render("listings/new.ejs");
-});
-
-// ✅ CREATE (FIXED newListing)
-app.post(
-  "/listings",
-  validatelisting,
-  wrapAsync(async (req, res) => {
-    const newListing = new Listing(req.body.listing); // FIXED
-    await newListing.save();
     res.redirect("/listings");
-  })
-);
+});
 
-// EDIT
-app.get(
-  "/listings/:id/edit",
-  validatelisting,
-  wrapAsync(async (req, res) => {
-    const { id } = req.params;
-    const listing = await Listing.findById(id);
-    res.render("listings/edit.ejs", { listing });
-  })
-);
+// Review Route
+app.post("/listings/:id/reviews", async (req, res, next) => {
+    try {
+        const { id } = req.params;
 
-// UPDATE
-app.put(
-  "/listings/:id",
-  wrapAsync(async (req, res) => {
-    const { id } = req.params;
-    await Listing.findByIdAndUpdate(id, req.body.listing);
-    res.redirect(`/listings/${id}`);
-  })
-);
+        const listing = await Listing.findById(id);
 
-// DELETE
-// app.delete(
-//   "/listings/:id",
-//   wrapAsync(async (req, res) => {
-//     const { id } = req.params;
-//     await Listing.findByIdAndDelete(id);
-//     res.redirect("/listings");
-//   })
-// );
-// Middleware to check admin access
-// Middleware to check admin access
-const requireAdmin = (req, res, next) => {
-  const secret = req.query.secret; // pass ?secret=YOUR_SECRET in URL
-  if (!secret || secret !== process.env.ADMIN_PASSWORD) {
-    // Throw error to render error page
-    return next(new ExpressError(401, "Unauthorized! Only admin can delete listings."));
-  }
-  next();
-};
+        if (!listing) {
+            throw new ExpressError(404, "Listing not found");
+        }
 
-// DELETE route (protected)
-app.delete(
-  "/listings/:id",
-  requireAdmin, // ✅ only admin can delete
-  wrapAsync(async (req, res) => {
-    const { id } = req.params;
-    const listing = await Listing.findByIdAndDelete(id);
+        const review = new Reviewa(req.body.review);
 
-    if (!listing) {
-      // Listing not found
-      throw new ExpressError(404, "Listing not found");
+        listing.reviews.push(review);
+
+        await review.save();
+        await listing.save();
+
+        res.redirect(`/listings/${id}`);
+    } catch (err) {
+        next(err);
     }
+});
 
-    res.redirect("/listings");
-  })
-);
-
-
-
-// SHOW
-app.get(
-  "/listings/:id",
-  wrapAsync(async (req, res) => {
-    const { id } = req.params;
-    const listing = await Listing.findById(id);
-    res.render("listings/show.ejs", { listing });
-  })
-);
-
-// Error handler
+// Error Handler
 app.use((err, req, res, next) => {
-  const { statusCode = 500 } = err;
-  res.status(statusCode).render("error.ejs", { err });
+    const { statusCode = 500 } = err;
+    res.status(statusCode).render("error", { err });
+});
+
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
 });

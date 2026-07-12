@@ -240,6 +240,102 @@ const sampleListings = [
     country: "United Arab Emirates",
   },
   {
+    title: "Cloud 9 Pool Villa ✨",
+    description:
+      "Main character energy unlocked. Private pool, insane hill views, and full weekend vibes. Perfect for squad goals or soft life weekends.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 8900,
+    location: "Gold Valley, Lonavala",
+    country: "India",
+  },
+  {
+    title: "Misty Mood Cabin 🌫️",
+    description:
+      "Wake up in the clouds. Cozy wooden cabin, rain aesthetics, chai + hoodie type mornings. Pure peaceful core.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 3200,
+    location: "Rajmachi Road, Lonavala",
+    country: "India",
+  },
+  {
+    title: "Soft Life Hill Apartment 💫",
+    description:
+      "Minimal, vibey, aesthetic. Perfect for content creators & remote work baddies. Sunset balcony hits different here.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1502005097973-6a7082348e28?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 2900,
+    location: "Khandala",
+    country: "India",
+  },
+  {
+    title: "Squad Goals Party Villa 🎉",
+    description:
+      "Big pool. Big speakers. Bigger memories. Birthday? Reunion? Just bored? This villa understands the assignment.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 10500,
+    location: "Tungarli Hills, Lonavala",
+    country: "India",
+  },
+  {
+    title: "Sunset Therapy House 🌅",
+    description:
+      "Golden hour here is illegal. Rooftop chill scenes, soft breeze, zero stress. Your burnout cure starts here.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 4800,
+    location: "Near Tiger Point, Lonavala",
+    country: "India",
+  },
+  {
+    title: "Rainy Day Romance Stay 💛",
+    description:
+      "Rain + hills + cozy interiors = rom-com moment. Perfect for lowkey couple trips & slow mornings.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 5100,
+    location: "Bhushi Dam Area, Lonavala",
+    country: "India",
+  },
+  {
+    title: "Nature Detox Retreat 🌿",
+    description:
+      "Digital detox but make it aesthetic. Forest vibes, deep breaths, and actual silence. Touch grass moment.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1472224371017-08207f84aaae?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 2600,
+    location: "Valvan Village, Lonavala",
+    country: "India",
+  },
+  {
+    title: "Luxury Villa But Make It Extra 💎",
+    description:
+      "Private pool, huge rooms, pure elite aura. If 'rich weekend energy' was a place — this is it.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 12000,
+    location: "Aamby Valley Road, Lonavala",
+    country: "India",
+  },
+  {
     title: "Rustic Log Cabin in Montana",
     description:
       "Unplug and unwind in this cozy log cabin surrounded by the natural beauty of Montana.",
@@ -347,6 +443,127 @@ const sampleListings = [
     location: "Costa Rica",
     country: "Costa Rica",
   },
+  {
+    title: "Hilltop Cottage with Valley View",
+    description:
+      "Enjoy peaceful mornings with misty valley views from this cozy hilltop cottage near Lonavala.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 3500,
+    location: "Lion’s Point, Lonavala",
+    country: "India",
+  },
+  {
+    title: "Luxury Villa with Private Pool",
+    description:
+      "Relax in a modern luxury villa featuring a private pool and scenic mountain surroundings.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 8500,
+    location: "Tungarli, Lonavala",
+    country: "India",
+  },
+  {
+    title: "Cozy Wooden Cabin Retreat",
+    description:
+      "A charming wooden cabin surrounded by greenery, perfect for weekend getaways.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 2800,
+    location: "Karjat Road, Lonavala",
+    country: "India",
+  },
+  {
+    title: "Modern Glass House in the Hills",
+    description:
+      "Stay in a stylish glass house offering panoramic views of the Sahyadri mountains.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 7200,
+    location: "Bhushi Dam Area, Lonavala",
+    country: "India",
+  },
+  {
+    title: "Rustic Farmhouse Escape",
+    description:
+      "Experience countryside living in this spacious farmhouse surrounded by lush greenery.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 5000,
+    location: "Aamby Valley Road, Lonavala",
+    country: "India",
+  },
+  {
+    title: "Mountain View Bungalow",
+    description:
+      "A comfortable bungalow offering stunning sunset views over the mountains.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 4200,
+    location: "Rajmachi Road, Lonavala",
+    country: "India",
+  },
+  {
+    title: "Romantic Studio with Balcony",
+    description:
+      "Perfect for couples, this studio apartment features a private balcony overlooking hills.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 3000,
+    location: "Khandala",
+    country: "India",
+  },
+  {
+    title: "Private Pool Villa for Groups",
+    description:
+      "Spacious villa ideal for group stays with a private pool and garden area.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 9500,
+    location: "Gold Valley, Lonavala",
+    country: "India",
+  },
+  {
+    title: "Eco-Friendly Nature Retreat",
+    description:
+      "Reconnect with nature in this eco-friendly retreat surrounded by forest trails.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1472224371017-08207f84aaae?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 2600,
+    location: "Valvan, Lonavala",
+    country: "India",
+  },
+  {
+    title: "Premium Hill Resort Stay",
+    description:
+      "Experience luxury and comfort in this premium hill resort accommodation.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=800&q=60",
+    },
+    price: 11000,
+    location: "Near Tiger Point, Lonavala",
+    country: "India",
+  },
+
 ];
 
 module.exports = { data: sampleListings };

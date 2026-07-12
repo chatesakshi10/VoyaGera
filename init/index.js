@@ -18,9 +18,14 @@ main()
     console.log(err);
   });
 
+// const initDB = async () => {
+//   await Listing.deleteMany({});
+//   await Listing.insertMany(initData.data);
+//   console.log("Data was initialized");
+//   mongoose.connection.close();
+// };
 const initDB = async () => {
-  await Listing.deleteMany({});
   await Listing.insertMany(initData.data);
-  console.log("Data was initialized");
+  console.log("New data added successfully");
   mongoose.connection.close();
 };

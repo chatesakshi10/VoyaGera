@@ -3,7 +3,7 @@
 <div class="row mt-4">
     <div class="col-8 offset-2">
 
-        <h3 class="mb-3">Listing Details</h3>
+        <h3 class="card-title"><%= listing.title %></h3>
 
         <div class="card mb-4">
             <img 
@@ -13,7 +13,6 @@
             >
 
             <div class="card-body">
-                <h5 class="card-title"><%= listing.title %></h5>
                 <p class="card-text"><%= listing.description %></p>
 
                 <p class="card-text">
@@ -45,6 +44,22 @@
                 </button>
             </form>
         </div>
+        <div class="col-8 offset-2 mb-3" ></div>
+        <br>
+        <hr>
+        <div>Leave a Review</div>
+        <form action="/listings/<%= listing.id %>/reviews" method="POST" novalidate class="needs-validation">
+            <div>
+                <label for="ratings" class="form-label">Ratings</label>
+                <input type="range" min="1" max="5" id="rating" name="review[rating]" class="form-range" >
+            </div>
+            <div>
+                <label for="comments">Comments</label>
+                <textarea name="review[comment]" id="comment" cols="30" rows="10" class="form-control"></textarea>
+            </div>
+            <br>
+            <button class="btnclr">Submit</button>
+        </form>
 
         <br>
     </div>
